@@ -5,6 +5,8 @@ ENV.productionApiUrl = 'https://jb-301n10-booklist.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
+// if running locally with hybrid in query string
+// then force use of production API
 var urlParams = new URLSearchParams(window.location.search);
 if(urlParams.has('hybrid')) {
     ENV.apiUrl = ENV.productionApiUrl;
